@@ -3,8 +3,8 @@ conky.config = {
     alignment          = 'top_right',
     gap_x              = 24,
     gap_y              = 60,
-    minimum_width      = 280,
-    maximum_width      = 280,
+    minimum_width      = 300,
+    maximum_width      = 300,
     minimum_height     = 0,
 
     -- Behavior
@@ -35,15 +35,13 @@ conky.config = {
 
     -- Colors
     default_color      = 'A0B4D6',
-    color1             = '00D4FF',  -- cyan accent
-    color2             = 'FF3D9A',  -- pink accent
-    color3             = '00E676',  -- green accent
-    color4             = 'FFD600',  -- yellow accent
-    color5             = 'C147E9',  -- purple accent
-    color6             = 'FFFFFF',  -- white
-    color7             = '0D1B3E',  -- navy bg
+    color1             = '00D4FF',
+    color2             = 'FF3D9A',
+    color3             = '00E676',
+    color4             = 'FFD600',
+    color5             = 'C147E9',
+    color6             = 'FFFFFF',
 
-    -- Misc
     stippled_borders   = 0,
     uppercase          = false,
     use_spacer         = 'none',
@@ -52,45 +50,55 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}╭────────────────────────────╮${color default}
-${color1}│${color6}  gEN!u$  ${color4}🤓${color6}  System Monitor   ${color1}│${color default}
-${color1}╰────────────────────────────╯${color default}
+${color1}${hr 2}
+${alignc}${color6}Dashboard
+${color1}${hr 2}
 
-${color1}  ${color6}${time %A, %d %B %Y}${color default}
-${color1}  ${color6}${time %H:%M:%S}${color default}
+${alignc}${color6}${time %A, %d %B %Y}
 
-${color1}──  CPU ────────────────────────${color default}
-${color3}  Core 1:  ${color6}${cpu cpu1}%  ${color1}${cpubar cpu1 6,140}
-${color3}  Core 2:  ${color6}${cpu cpu2}%  ${color1}${cpubar cpu2 6,140}
-${color3}  Core 3:  ${color6}${cpu cpu3}%  ${color1}${cpubar cpu3 6,140}
-${color3}  Core 4:  ${color6}${cpu cpu4}%  ${color1}${cpubar cpu4 6,140}
-${color4}  Temp:    ${color6}${hwmon 0 temp 1}°C
-${color4}  Load:    ${color6}${loadavg}
+${color4}  UGANDA        ${color6}${tztime Africa/Kampala %H:%M:%S}
+${color3}  UNITED STATES ${color6}${tztime America/New_York %H:%M:%S}
+${color2}  INDIA         ${color6}${tztime Asia/Kolkata %H:%M:%S}
 
-${color2}──  MEMORY ─────────────────────${color default}
-${color2}  RAM:  ${color6}${mem} / ${memmax}
-${color2}        ${color2}${membar 6,230}
-${color2}  Swap: ${color6}${swap} / ${swapmax}
+${color1}${hr 1}
+${color3}  Core 1:  ${color6}${cpu cpu1}%  ${color1}${cpubar cpu1 4,160}
+${color3}  Core 2:  ${color6}${cpu cpu2}%  ${color1}${cpubar cpu2 4,160}
+${color3}  Core 3:  ${color6}${cpu cpu3}%  ${color1}${cpubar cpu3 4,160}
+${color3}  Core 4:  ${color6}${cpu cpu4}%  ${color1}${cpubar cpu4 4,160}
+${color4}  Temp: ${color6}${hwmon 0 temp 1}°C   ${color4}Load: ${color6}${loadavg}
 
-${color5}──  DISK ────────────────────────${color default}
-${color5}  Root: ${color6}${fs_used /} / ${fs_size /}
-${color5}        ${color5}${fs_bar 6,230 /}
+${color2}${hr 1}
+${color2}  RAM:   ${color6}${mem} / ${memmax}  ${color2}${memperc}%
+${color2}${membar 4}
+${color2}  Swap:  ${color6}${swap} / ${swapmax}  ${color2}${swapperc}%
 
-${color1}──  NETWORK ────────────────────${color default}
-${color1}  ↑ Up:   ${color6}${upspeed}   ${color1}↓ Down: ${color6}${downspeed}
-${color1}  IP:     ${color6}${addr wlp2s0}${addrs eth0}
+${color5}${hr 1}
+${color5}  Disk:  ${color6}${fs_used /} / ${fs_size /}  ${color5}${fs_used_perc /}%
+${color5}${fs_bar 4 /}
 
-${color4}──  PROCESSES ──────────────────${color default}
+${color1}${hr 1}
+${color1}  WiFi:   ${color6}${wireless_essid wlp0s20f3}
+${color1}  Signal: ${color6}${wireless_link_qual_perc wlp0s20f3}%  ${color1}${wireless_link_bar 4,160 wlp0s20f3}
+${color1}  Up: ${color6}${upspeed wlp0s20f3}   ${color1}Down: ${color6}${downspeed wlp0s20f3}
+${color1}  IP: ${color6}${addr wlp0s20f3}
+
+${color4}${hr 1}
 ${color4}  Running: ${color6}${running_processes} / ${processes}
-${color4}  Top CPU:
-${color6}    ${top name 1}  ${color3}${top cpu 1}%
-${color6}    ${top name 2}  ${color3}${top cpu 2}%
-${color6}    ${top name 3}  ${color3}${top cpu 3}%
+${color6}  ${top name 1}  ${color3}${top cpu 1}%
+${color6}  ${top name 2}  ${color3}${top cpu 2}%
+${color6}  ${top name 3}  ${color3}${top cpu 3}%
+${color6}  ${top name 4}  ${color3}${top cpu 4}%
+${color6}  ${top name 5}  ${color3}${top cpu 5}%
+${color6}  ${top name 6}  ${color3}${top cpu 6}%
+${color6}  ${top name 7}  ${color3}${top cpu 7}%
+${color6}  ${top name 8}  ${color3}${top cpu 8}%
+${color6}  ${top name 9}  ${color3}${top cpu 9}%
+${color6}  ${top name 10}  ${color3}${top cpu 10}%
 
-${color1}──  UPTIME ─────────────────────${color default}
-${color1}  ${color6}${uptime}
+${color1}${hr 1}
+${color6}  Uptime: ${color1}${uptime}
 
-${color1}╭────────────────────────────╮${color default}
-${color1}│${color5}   Rincol Tech Solutions     ${color1}│${color default}
-${color1}╰────────────────────────────╯${color default}
+${color1}${hr 2}
+${alignc}${color5}Rincol Tech Solutions
+${color1}${hr 2}
 ]]

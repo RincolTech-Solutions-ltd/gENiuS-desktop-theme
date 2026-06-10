@@ -84,6 +84,15 @@ echo ""
 step "Installing Conky config..."
 mkdir -p "$CONKY_DEST"
 cp "$THEME_DIR/conky/genius.conkyrc" "$CONKY_DEST/genius.conkyrc"
+
+# Auto-detect WiFi interface and patch conkyrc
+WIFI_IFACE=$(iw dev 2>/dev/null | awk '/Interface/{print $2}' | head -1)
+if [ -n "$WIFI_IFACE" ]; then
+  sed -i "s/wlp0s20f3/$WIFI_IFACE/g" "$CONKY_DEST/genius.conkyrc"
+  ok "WiFi interface detected: $WIFI_IFACE"
+else
+  warn "Could not detect WiFi interface — edit ~/.config/conky/genius.conkyrc manually"
+fi
 # Auto-start Conky on login
 mkdir -p "$HOME/.config/autostart"
 cat > "$HOME/.config/autostart/genius-conky.desktop" <<EOF
