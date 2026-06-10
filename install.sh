@@ -104,6 +104,12 @@ else
   sed -i "s/__ETH__/eth0/g" "$CONKY_DEST/genius.conkyrc"
   warn "Could not detect Ethernet interface — defaulted to eth0"
 fi
+# Deploy facts pool and fact script
+cp "$THEME_DIR/conky/facts.txt" "$CONKY_DEST/facts.txt"
+cp "$THEME_DIR/conky/fact.sh"   "$CONKY_DEST/fact.sh"
+chmod +x "$CONKY_DEST/fact.sh"
+ok "BYTE OF THE DAY facts pool installed ($(wc -l < "$CONKY_DEST/facts.txt") facts)"
+
 # Auto-start Conky on login
 mkdir -p "$HOME/.config/autostart"
 cat > "$HOME/.config/autostart/genius-conky.desktop" <<EOF
