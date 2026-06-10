@@ -55,16 +55,18 @@ ${alignc}${color1}│${color6} Dashboard ${color1}│
 ${alignc}${color1}╰───────────╯
 
 ${alignc}${color6}${time %A, %d %B %Y}
+${alignc}${color default}${execi 3600 python3 -c "import datetime as d; n=d.datetime.now(); y=n.timetuple().tm_yday; print(f'Day {y} of 365')"}
+${color1}${execbar 4 python3 -c "import datetime as d; n=d.datetime.now(); print(int(n.timetuple().tm_yday/365*100))"}
 
 ${color4}  UGANDA        ${color6}${tztime Africa/Kampala %H:%M:%S}
 ${color3}  UNITED STATES ${color6}${tztime America/New_York %H:%M:%S}
 ${color2}  INDIA         ${color6}${tztime Asia/Kolkata %H:%M:%S}
 
 ${color1}${hr 1}
-${color3}  Core 1:  ${color6}${cpu cpu1}%  ${color1}${cpubar cpu1 4,160}
-${color3}  Core 2:  ${color6}${cpu cpu2}%  ${color1}${cpubar cpu2 4,160}
-${color3}  Core 3:  ${color6}${cpu cpu3}%  ${color1}${cpubar cpu3 4,160}
-${color3}  Core 4:  ${color6}${cpu cpu4}%  ${color1}${cpubar cpu4 4,160}
+${color3}  Core 1: ${color6}${cpu cpu1}%${goto 105}${color1}${cpubar cpu1 4,185}
+${color3}  Core 2: ${color6}${cpu cpu2}%${goto 105}${color1}${cpubar cpu2 4,185}
+${color3}  Core 3: ${color6}${cpu cpu3}%${goto 105}${color1}${cpubar cpu3 4,185}
+${color3}  Core 4: ${color6}${cpu cpu4}%${goto 105}${color1}${cpubar cpu4 4,185}
 ${color4}  Temp: ${color6}${hwmon 0 temp 1}°C   ${color4}Load: ${color6}${loadavg}
 
 ${color2}${hr 1}
