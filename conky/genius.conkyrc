@@ -61,10 +61,6 @@ ${color3}  UNITED STATES ${color6}${tztime America/New_York %H:%M:%S}
 ${color2}  INDIA         ${color6}${tztime Asia/Kolkata %H:%M:%S}
 
 ${color1}${hr 1}
-${alignc}${color1}[ BYTE OF THE DAY ]
-${color6}${execi 3600 bash ~/.config/conky/fact.sh}
-
-${color1}${hr 1}
 ${color3}  Core 1:  ${color6}${cpu cpu1}%  ${color1}${cpubar cpu1 4,160}
 ${color3}  Core 2:  ${color6}${cpu cpu2}%  ${color1}${cpubar cpu2 4,160}
 ${color3}  Core 3:  ${color6}${cpu cpu3}%  ${color1}${cpubar cpu3 4,160}
@@ -107,6 +103,10 @@ ${color1}${hr 1}
 ${color6}  Uptime:  ${color1}${uptime}
 ${color6}  Battery: ${color3}${battery_percent BAT0}%  ${color4}${battery_time BAT0}  ${color6}${execi 10 cat /sys/class/power_supply/BAT0/status}
 ${color3}${battery_bar 4 BAT0}
+
+${color1}${hr 1}
+${alignc}${color1}[ BYTE OF THE DAY ]
+${color6}${execi 3600 bash ~/.config/conky/fact.sh}
 
 ${alignc}${color5}╭─────────────────────────╮
 ${alignc}${color5}│ © Rincol Tech Solutions │
