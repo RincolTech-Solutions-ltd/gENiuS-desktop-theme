@@ -1,32 +1,89 @@
 # gENiuS Desktop Theme
 
-Custom Cinnamon-based desktop environment for **gEN!u$** — built by Rincol Tech Solutions.
+A custom Cinnamon-based desktop theme for **gEN!u$** — built by [Rincol Tech Solutions](https://github.com/RincolTech-Solutions-ltd).
 
-## Colors
+Deep navy background with a colorful accent system extracted from the gENiuS brand palette.
+
+---
+
+## Requirements
+
+- Linux Mint (any recent version) or Ubuntu 22.04+
+- Cinnamon desktop environment
+- Internet connection (for package installs)
+
+---
+
+## Installation
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/RincolTech-Solutions-ltd/gENiuS-desktop-theme.git
+```
+
+### 2. Run the installer
+
+```bash
+bash gENiuS-desktop-theme/install.sh
+```
+
+That's it. The script handles everything automatically:
+
+- Installs all dependencies (Conky, Papirus icons, JetBrains Mono font, etc.)
+- Installs the GTK3/4 theme to `~/.themes/gENiuS-Dark`
+- Installs the Cinnamon shell theme
+- Sets the gENiuS wallpaper
+- Deploys the Conky dashboard widget (auto-starts on login)
+- Auto-detects your WiFi interface
+- Applies the LightDM login screen theme
+- Sets workspace names: Brain, Code, Launch, Chill
+
+### 3. Apply the shell theme manually (one-time)
+
+After the script finishes, open **Menu → Themes** and set:
+
+| Setting | Value |
+|---|---|
+| Window borders | gENiuS-Dark |
+| Controls | gENiuS-Dark |
+| Desktop | gENiuS-Dark |
+
+---
+
+## What's included
+
+| Component | Description |
+|---|---|
+| GTK3/4 theme | Dark navy windows, cyan borders, colorful buttons |
+| Cinnamon shell | Semi-transparent navy panel with cyan glow |
+| Conky dashboard | Live system stats — CPU, RAM, disk, network, top 10 processes, 3 time zones |
+| Wallpaper | gENiuS brand wallpaper |
+| LightDM theme | gENiuS-branded login screen |
+| Icons | Papirus-Dark |
+| Font | JetBrains Mono |
+
+---
+
+## Color Palette
 
 | Role | Hex |
 |---|---|
 | Background | `#0D1B3E` |
-| Cyan accent | `#00D4FF` |
-| Pink accent | `#FF3D9A` |
+| Cyan (primary) | `#00D4FF` |
+| Pink | `#FF3D9A` |
 | Green | `#00E676` |
 | Yellow | `#FFD600` |
 | Purple | `#C147E9` |
 
-## Install
+---
+
+## Uninstall
 
 ```bash
-bash install.sh
+rm -rf ~/.themes/gENiuS-Dark
+rm -f ~/.config/conky/genius.conkyrc
+rm -f ~/.config/autostart/genius-conky.desktop
+gsettings reset org.gnome.desktop.interface gtk-theme
+gsettings reset org.gnome.desktop.background picture-uri
 ```
-
-## What gets applied
-
-- GTK3/4 dark theme
-- Cinnamon shell theme (panel, menus, notifications)
-- Window decorations (Metacity)
-- gENiuS wallpaper
-- Conky system monitor widget (top-right)
-- LightDM login screen
-- Workspace names: Brain, Code, Launch, Chill
-- JetBrains Mono font system-wide
-- Papirus-Dark icons
