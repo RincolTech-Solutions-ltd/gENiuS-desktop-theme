@@ -1,0 +1,26 @@
+/* gENiuS GTK4 Theme — inherits from GTK3 base */
+@import url("../gtk-3.0/gtk.css");
+
+window.dialog {
+  border-radius: 12px;
+}
+
+.view {
+  background-color: #0D1B3E;
+  color: #FFFFFF;
+}
+
+listview row {
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 200ms ease;
+}
+
+listview row:hover {
+  background: rgba(0, 212, 255, 0.08);
+}
+
+listview row:selected {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00D4FF;
+}

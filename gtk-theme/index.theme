@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=gENiuS-Dark
+Comment=gENiuS custom dark theme for Cinnamon — deep navy with colorful accents
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=gENiuS-Dark
+MetacityTheme=gENiuS-Dark
+IconTheme=Papirus-Dark
+CursorTheme=Adwaita
+ButtonLayout=close,minimize,maximize:

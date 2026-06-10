@@ -1,0 +1,330 @@
+/* =========================================================
+   gENiuS Cinnamon Shell Theme
+   Deep navy + colorful gENiuS accent system
+   ========================================================= */
+
+/* --- PANEL --- */
+#panel {
+  background-color: rgba(13, 27, 62, 0.92);
+  border-top: 1px solid rgba(0, 212, 255, 0.3);
+  color: #FFFFFF;
+  height: 40px;
+  font-size: 13px;
+}
+
+#panel.bottom {
+  border-top: 1px solid rgba(0, 212, 255, 0.4);
+  border-bottom: none;
+  box-shadow: 0 -2px 20px rgba(0, 212, 255, 0.1);
+}
+
+#panel.top {
+  border-bottom: 1px solid rgba(0, 212, 255, 0.4);
+  box-shadow: 0 2px 20px rgba(0, 212, 255, 0.1);
+}
+
+.panel-status-button {
+  color: #A0B4D6;
+  padding: 0 8px;
+  border-radius: 6px;
+  transition-duration: 200ms;
+}
+
+.panel-status-button:hover {
+  background-color: rgba(0, 212, 255, 0.15);
+  color: #00D4FF;
+}
+
+.panel-button {
+  color: #A0B4D6;
+  padding: 0 10px;
+  border-radius: 6px;
+  transition-duration: 200ms;
+}
+
+.panel-button:hover, .panel-button:focus {
+  background-color: rgba(0, 212, 255, 0.15);
+  color: #00D4FF;
+}
+
+.panel-button:checked {
+  background-color: rgba(0, 212, 255, 0.25);
+  color: #00D4FF;
+  border-bottom: 2px solid #00D4FF;
+}
+
+/* --- TASKBAR / WINDOW LIST --- */
+.window-list-item-box {
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 0 6px;
+  transition-duration: 200ms;
+}
+
+.window-list-item-box:hover {
+  background-color: rgba(0, 212, 255, 0.12);
+}
+
+.window-list-item-box:focus {
+  background-color: rgba(0, 212, 255, 0.2);
+  border-bottom: 2px solid #00D4FF;
+}
+
+/* --- MENU (START MENU) --- */
+.menu {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 212, 255, 0.08);
+  padding: 8px;
+  color: #FFFFFF;
+}
+
+.menu .search-entry {
+  background-color: rgba(26, 50, 112, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  margin: 4px 8px 8px 8px;
+  font-size: 13px;
+  caret-color: #00D4FF;
+}
+
+.menu .search-entry:focus {
+  border-color: #00D4FF;
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+.menu .search-entry StIcon {
+  color: #A0B4D6;
+}
+
+.menu .application-list-button {
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #FFFFFF;
+  transition-duration: 150ms;
+}
+
+.menu .application-list-button:hover {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.15) 0%, transparent 100%);
+  color: #00D4FF;
+}
+
+.menu .application-list-button:focus {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00D4FF;
+}
+
+.menu .category-button {
+  color: #A0B4D6;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  transition-duration: 150ms;
+}
+
+.menu .category-button:hover, .menu .category-button:focus {
+  background-color: rgba(193, 71, 233, 0.2);
+  color: #C147E9;
+}
+
+.menu-favorites-button {
+  border-radius: 8px;
+  padding: 8px;
+  transition-duration: 150ms;
+}
+
+.menu-favorites-button:hover {
+  background-color: rgba(0, 212, 255, 0.15);
+}
+
+/* --- NOTIFICATIONS --- */
+.notification-applet-padding {
+  padding: 4px;
+}
+
+.notification {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  padding: 12px;
+  color: #FFFFFF;
+}
+
+.notification-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #00D4FF;
+}
+
+.notification-body {
+  color: #A0B4D6;
+  font-size: 12px;
+}
+
+/* --- CALENDAR / DATE APPLET --- */
+.calendar {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+  color: #FFFFFF;
+}
+
+.calendar-month-label {
+  color: #00D4FF;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.calendar-day-heading {
+  color: #A0B4D6;
+  font-size: 11px;
+}
+
+.calendar-day {
+  border-radius: 50%;
+  color: #FFFFFF;
+  padding: 4px;
+  transition-duration: 150ms;
+}
+
+.calendar-day:hover {
+  background-color: rgba(0, 212, 255, 0.2);
+  color: #00D4FF;
+}
+
+.calendar-today {
+  background: linear-gradient(135deg, #00D4FF, #C147E9);
+  color: #0D1B3E;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+/* --- WORKSPACE SWITCHER --- */
+.workspace-switcher {
+  spacing: 4px;
+}
+
+.workspace-button {
+  background-color: rgba(26, 50, 112, 0.6);
+  border: 1px solid rgba(30, 58, 110, 0.8);
+  border-radius: 4px;
+  width: 24px;
+  height: 16px;
+  transition-duration: 200ms;
+}
+
+.workspace-button:hover {
+  background-color: rgba(0, 212, 255, 0.2);
+  border-color: #00D4FF;
+}
+
+.workspace-button:checked {
+  background: linear-gradient(135deg, #00D4FF, #C147E9);
+  border-color: #00D4FF;
+}
+
+/* --- VOLUME / SOUND --- */
+.sound-player {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.sound-player-generic-name {
+  color: #A0B4D6;
+  font-size: 11px;
+}
+
+.sound-player-title {
+  color: #00D4FF;
+  font-weight: bold;
+}
+
+/* --- TOOLTIP --- */
+.tooltip {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  border-radius: 6px;
+  color: #FFFFFF;
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* --- OVERVIEW / EXPO --- */
+.expo-background {
+  background-color: rgba(13, 27, 62, 0.96);
+}
+
+.workspace-overview-background {
+  background-color: rgba(13, 27, 62, 0.95);
+}
+
+/* --- POPUP MENUS (right-click, applet dropdowns) --- */
+.popup-menu {
+  background-color: rgba(10, 22, 48, 0.97);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.popup-menu-item {
+  border-radius: 6px;
+  padding: 7px 14px;
+  color: #FFFFFF;
+  transition-duration: 150ms;
+}
+
+.popup-menu-item:hover, .popup-menu-item:focus {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.15) 0%, transparent 100%);
+  color: #00D4FF;
+}
+
+.popup-menu-item:active {
+  background-color: rgba(0, 212, 255, 0.25);
+  color: #00D4FF;
+}
+
+.popup-separator-menu-item {
+  border-top: 1px solid rgba(30, 58, 110, 0.8);
+  margin: 4px 8px;
+}
+
+/* --- SWITCHES / TOGGLES --- */
+.toggle-switch {
+  background-color: rgba(26, 50, 112, 0.8);
+  border: 2px solid rgba(30, 58, 110, 0.8);
+  border-radius: 12px;
+}
+
+.toggle-switch:checked {
+  background: linear-gradient(90deg, #00D4FF, #C147E9);
+  border-color: #00D4FF;
+}
+
+/* --- SCROLLBARS --- */
+StScrollBar {
+  background-color: transparent;
+}
+
+StScrollBar StBin#trough {
+  background-color: rgba(26, 50, 112, 0.4);
+  border-radius: 10px;
+  width: 8px;
+}
+
+StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+  background-color: rgba(0, 212, 255, 0.4);
+  border-radius: 10px;
+  border: none;
+}
+
+StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+  background-color: #00D4FF;
+}

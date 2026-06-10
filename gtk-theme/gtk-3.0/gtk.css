@@ -1,0 +1,285 @@
+/* gENiuS GTK3 Theme */
+
+@define-color bg_color #0D1B3E;
+@define-color bg_light #112351;
+@define-color bg_hover #1a3270;
+@define-color fg_color #FFFFFF;
+@define-color fg_dim #A0B4D6;
+@define-color accent_cyan #00D4FF;
+@define-color accent_pink #FF3D9A;
+@define-color accent_green #00E676;
+@define-color accent_yellow #FFD600;
+@define-color accent_purple #C147E9;
+@define-color border_color #1E3A6E;
+@define-color selection_bg #00D4FF;
+@define-color selection_fg #0D1B3E;
+
+* {
+  -gtk-icon-style: regular;
+}
+
+window, .background {
+  background-color: @bg_color;
+  color: @fg_color;
+}
+
+headerbar, .titlebar {
+  background: linear-gradient(135deg, #0D1B3E 0%, #112351 50%, #0D1B3E 100%);
+  border-bottom: 1px solid @accent_cyan;
+  color: @fg_color;
+  padding: 6px 12px;
+}
+
+headerbar .title {
+  font-weight: bold;
+  color: @accent_cyan;
+  font-size: 13px;
+}
+
+headerbar button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: @fg_dim;
+  padding: 4px 8px;
+  transition: all 200ms ease;
+}
+
+headerbar button:hover {
+  background: @bg_hover;
+  border-color: @accent_cyan;
+  color: @accent_cyan;
+}
+
+headerbar button.close {
+  color: @accent_pink;
+}
+
+headerbar button.close:hover {
+  background: rgba(255, 61, 154, 0.2);
+  border-color: @accent_pink;
+}
+
+button {
+  background: linear-gradient(135deg, #1a3270, #0D1B3E);
+  border: 1px solid @border_color;
+  border-radius: 8px;
+  color: @fg_color;
+  padding: 6px 16px;
+  transition: all 200ms ease;
+  outline: none;
+}
+
+button:hover {
+  background: linear-gradient(135deg, @accent_cyan, #007a99);
+  border-color: @accent_cyan;
+  color: @bg_color;
+}
+
+button:active {
+  background: @accent_cyan;
+  color: @bg_color;
+}
+
+button.suggested-action {
+  background: linear-gradient(135deg, @accent_cyan, #007a99);
+  color: @bg_color;
+  border-color: @accent_cyan;
+  font-weight: bold;
+}
+
+button.destructive-action {
+  background: linear-gradient(135deg, @accent_pink, #991a5c);
+  color: white;
+  border-color: @accent_pink;
+}
+
+entry {
+  background: @bg_light;
+  border: 1px solid @border_color;
+  border-radius: 8px;
+  color: @fg_color;
+  padding: 6px 10px;
+  transition: border-color 200ms ease;
+}
+
+entry:focus {
+  border-color: @accent_cyan;
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+}
+
+entry selection {
+  background-color: @selection_bg;
+  color: @selection_fg;
+}
+
+scrollbar {
+  background: @bg_color;
+  border: none;
+}
+
+scrollbar slider {
+  background: @bg_hover;
+  border-radius: 10px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar slider:hover {
+  background: @accent_cyan;
+}
+
+treeview {
+  background: @bg_color;
+  color: @fg_color;
+}
+
+treeview:selected {
+  background: @bg_hover;
+  color: @accent_cyan;
+}
+
+treeview header button {
+  background: @bg_light;
+  border-color: @border_color;
+  color: @fg_dim;
+}
+
+menu, .menu, .context-menu {
+  background: #0a1630;
+  border: 1px solid @accent_cyan;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+menuitem {
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: @fg_color;
+  transition: all 150ms ease;
+}
+
+menuitem:hover {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.15), transparent);
+  color: @accent_cyan;
+}
+
+menuitem accelerator {
+  color: @fg_dim;
+  font-size: 11px;
+}
+
+separator, .separator {
+  background: @border_color;
+  min-height: 1px;
+  margin: 4px 8px;
+}
+
+notebook {
+  background: @bg_color;
+}
+
+notebook header {
+  background: @bg_light;
+  border-bottom: 2px solid @border_color;
+}
+
+notebook tab {
+  padding: 6px 16px;
+  color: @fg_dim;
+  border-radius: 6px 6px 0 0;
+  transition: all 200ms ease;
+}
+
+notebook tab:checked {
+  color: @accent_cyan;
+  background: @bg_color;
+  border-bottom: 2px solid @accent_cyan;
+}
+
+progressbar trough {
+  background: @bg_light;
+  border-radius: 10px;
+  min-height: 6px;
+}
+
+progressbar progress {
+  background: linear-gradient(90deg, @accent_cyan, @accent_purple);
+  border-radius: 10px;
+}
+
+scale trough {
+  background: @bg_light;
+  border-radius: 10px;
+  min-height: 4px;
+}
+
+scale highlight {
+  background: linear-gradient(90deg, @accent_cyan, @accent_purple);
+  border-radius: 10px;
+}
+
+scale slider {
+  background: @accent_cyan;
+  border-radius: 50%;
+  min-width: 14px;
+  min-height: 14px;
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.6);
+}
+
+checkbutton check, radiobutton radio {
+  background: @bg_light;
+  border: 2px solid @border_color;
+  border-radius: 4px;
+  color: @bg_color;
+  transition: all 200ms ease;
+}
+
+checkbutton check:checked, radiobutton radio:checked {
+  background: @accent_cyan;
+  border-color: @accent_cyan;
+  color: @bg_color;
+}
+
+tooltip {
+  background: #0a1630;
+  border: 1px solid @accent_cyan;
+  border-radius: 6px;
+  color: @fg_color;
+  padding: 4px 8px;
+}
+
+statusbar {
+  background: @bg_light;
+  border-top: 1px solid @border_color;
+  color: @fg_dim;
+  font-size: 11px;
+}
+
+.sidebar {
+  background: @bg_light;
+  border-right: 1px solid @border_color;
+}
+
+.sidebar row {
+  padding: 8px 12px;
+  color: @fg_color;
+  border-radius: 6px;
+}
+
+.sidebar row:selected {
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.2), transparent);
+  color: @accent_cyan;
+}
+
+filechooser .path-bar button {
+  color: @accent_cyan;
+}
+
+popover {
+  background: #0a1630;
+  border: 1px solid @accent_cyan;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}

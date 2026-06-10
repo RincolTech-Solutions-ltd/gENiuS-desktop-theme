@@ -1,0 +1,96 @@
+conky.config = {
+    -- Window
+    alignment          = 'top_right',
+    gap_x              = 24,
+    gap_y              = 60,
+    minimum_width      = 280,
+    maximum_width      = 280,
+    minimum_height     = 0,
+
+    -- Behavior
+    background         = true,
+    update_interval    = 2.0,
+    double_buffer      = true,
+    no_buffers         = true,
+    cpu_avg_samples    = 2,
+    net_avg_samples    = 2,
+
+    -- Window style
+    own_window         = true,
+    own_window_type    = 'desktop',
+    own_window_hints   = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value  = 220,
+    own_window_colour  = '#0D1B3E',
+
+    -- Border
+    draw_borders       = false,
+    draw_graph_borders = false,
+    border_width       = 0,
+
+    -- Font
+    use_xft            = true,
+    font               = 'JetBrains Mono:size=9',
+    xftalpha           = 1,
+
+    -- Colors
+    default_color      = 'A0B4D6',
+    color1             = '00D4FF',  -- cyan accent
+    color2             = 'FF3D9A',  -- pink accent
+    color3             = '00E676',  -- green accent
+    color4             = 'FFD600',  -- yellow accent
+    color5             = 'C147E9',  -- purple accent
+    color6             = 'FFFFFF',  -- white
+    color7             = '0D1B3E',  -- navy bg
+
+    -- Misc
+    stippled_borders   = 0,
+    uppercase          = false,
+    use_spacer         = 'none',
+    short_units        = true,
+    pad_percents       = 2,
+}
+
+conky.text = [[
+${color1}╭────────────────────────────╮${color default}
+${color1}│${color6}  gEN!u$  ${color4}🤓${color6}  System Monitor   ${color1}│${color default}
+${color1}╰────────────────────────────╯${color default}
+
+${color1}  ${color6}${time %A, %d %B %Y}${color default}
+${color1}  ${color6}${time %H:%M:%S}${color default}
+
+${color1}──  CPU ────────────────────────${color default}
+${color3}  Core 1:  ${color6}${cpu cpu1}%  ${color1}${cpubar cpu1 6,140}
+${color3}  Core 2:  ${color6}${cpu cpu2}%  ${color1}${cpubar cpu2 6,140}
+${color3}  Core 3:  ${color6}${cpu cpu3}%  ${color1}${cpubar cpu3 6,140}
+${color3}  Core 4:  ${color6}${cpu cpu4}%  ${color1}${cpubar cpu4 6,140}
+${color4}  Temp:    ${color6}${hwmon 0 temp 1}°C
+${color4}  Load:    ${color6}${loadavg}
+
+${color2}──  MEMORY ─────────────────────${color default}
+${color2}  RAM:  ${color6}${mem} / ${memmax}
+${color2}        ${color2}${membar 6,230}
+${color2}  Swap: ${color6}${swap} / ${swapmax}
+
+${color5}──  DISK ────────────────────────${color default}
+${color5}  Root: ${color6}${fs_used /} / ${fs_size /}
+${color5}        ${color5}${fs_bar 6,230 /}
+
+${color1}──  NETWORK ────────────────────${color default}
+${color1}  ↑ Up:   ${color6}${upspeed}   ${color1}↓ Down: ${color6}${downspeed}
+${color1}  IP:     ${color6}${addr wlp2s0}${addrs eth0}
+
+${color4}──  PROCESSES ──────────────────${color default}
+${color4}  Running: ${color6}${running_processes} / ${processes}
+${color4}  Top CPU:
+${color6}    ${top name 1}  ${color3}${top cpu 1}%
+${color6}    ${top name 2}  ${color3}${top cpu 2}%
+${color6}    ${top name 3}  ${color3}${top cpu 3}%
+
+${color1}──  UPTIME ─────────────────────${color default}
+${color1}  ${color6}${uptime}
+
+${color1}╭────────────────────────────╮${color default}
+${color1}│${color5}   Rincol Tech Solutions     ${color1}│${color default}
+${color1}╰────────────────────────────╯${color default}
+]]

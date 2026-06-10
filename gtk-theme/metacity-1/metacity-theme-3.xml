@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metacity_theme>
+  <info>
+    <name>gENiuS-Dark</name>
+    <author>gEN!u$ — Rincol Tech Solutions</author>
+    <description>Deep navy window decorations with cyan glow accents</description>
+    <date>2026-06-10</date>
+    <version>1.0</version>
+  </info>
+
+  <constant name="BORDER_COLOR" value="#1E3A6E"/>
+  <constant name="ACTIVE_COLOR" value="#00D4FF"/>
+  <constant name="BG_DARK" value="#0D1B3E"/>
+  <constant name="BG_MID" value="#112351"/>
+  <constant name="TEXT_COLOR" value="#FFFFFF"/>
+  <constant name="TEXT_DIM" value="#A0B4D6"/>
+
+  <draw_ops name="title_gradient">
+    <gradient type="vertical" x="0" y="0" width="width" height="height">
+      <color value="#112351"/>
+      <color value="#0D1B3E"/>
+    </gradient>
+  </draw_ops>
+
+  <draw_ops name="active_title_gradient">
+    <gradient type="vertical" x="0" y="0" width="width" height="height">
+      <color value="#1a3270"/>
+      <color value="#0D1B3E"/>
+    </gradient>
+    <line color="#00D4FF" x1="0" y1="height-1" x2="width" y2="height-1" width="1" dash-on-length="0" dash-off-length="0"/>
+  </draw_ops>
+
+  <frame_geometry name="normal" title_scale="medium" rounded_top_left="6" rounded_top_right="6" has_title="true" title_vertical_pad="6">
+    <distance name="left_width" value="1"/>
+    <distance name="right_width" value="1"/>
+    <distance name="bottom_height" value="1"/>
+    <distance name="left_titlebar_edge" value="6"/>
+    <distance name="right_titlebar_edge" value="6"/>
+    <distance name="title_vertical_pad" value="6"/>
+    <border name="title_border" top="3" bottom="3" left="4" right="4"/>
+    <border name="button_border" top="3" bottom="3" left="2" right="2"/>
+    <aspect_ratio name="button" value="1.1"/>
+  </frame_geometry>
+
+  <frame_style name="normal_focused" geometry="normal">
+    <piece position="titlebar">
+      <draw_ops>
+        <include name="active_title_gradient"/>
+      </draw_ops>
+    </piece>
+    <piece position="title">
+      <draw_ops>
+        <title color="#FFFFFF" x="0" y="0"/>
+      </draw_ops>
+    </piece>
+    <piece position="left_edge">
+      <draw_ops>
+        <rectangle color="#1E3A6E" x="0" y="0" width="width" height="height" filled="false"/>
+      </draw_ops>
+    </piece>
+    <piece position="right_edge">
+      <draw_ops>
+        <rectangle color="#1E3A6E" x="0" y="0" width="width" height="height" filled="false"/>
+      </draw_ops>
+    </piece>
+    <piece position="bottom_edge">
+      <draw_ops>
+        <rectangle color="#1E3A6E" x="0" y="0" width="width" height="height" filled="false"/>
+      </draw_ops>
+    </piece>
+  </frame_style>
+
+  <frame_style name="normal_unfocused" geometry="normal">
+    <piece position="titlebar">
+      <draw_ops>
+        <include name="title_gradient"/>
+      </draw_ops>
+    </piece>
+    <piece position="title">
+      <draw_ops>
+        <title color="#A0B4D6" x="0" y="0"/>
+      </draw_ops>
+    </piece>
+  </frame_style>
+
+  <frame_style_set name="normal">
+    <frame focus="yes" state="normal" style="normal_focused"/>
+    <frame focus="no" state="normal" style="normal_unfocused"/>
+    <frame focus="yes" state="maximized" style="normal_focused"/>
+    <frame focus="no" state="maximized" style="normal_unfocused"/>
+    <frame focus="yes" state="shaded" style="normal_focused"/>
+    <frame focus="no" state="shaded" style="normal_unfocused"/>
+  </frame_style_set>
+
+  <window type="normal" style_set="normal"/>
+  <window type="dialog" style_set="normal"/>
+  <window type="modal_dialog" style_set="normal"/>
+  <window type="menu" style_set="normal"/>
+  <window type="utility" style_set="normal"/>
+  <window type="border" style_set="normal"/>
+</metacity_theme>
