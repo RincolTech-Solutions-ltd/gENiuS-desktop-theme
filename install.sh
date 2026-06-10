@@ -85,13 +85,24 @@ step "Installing Conky config..."
 mkdir -p "$CONKY_DEST"
 cp "$THEME_DIR/conky/genius.conkyrc" "$CONKY_DEST/genius.conkyrc"
 
-# Auto-detect WiFi interface and patch conkyrc
+# Auto-detect WiFi and Ethernet interfaces and patch conkyrc
 WIFI_IFACE=$(iw dev 2>/dev/null | awk '/Interface/{print $2}' | head -1)
+ETH_IFACE=$(ip link show | grep -E "^[0-9]+: (en|eth)" | awk -F': ' '{print $2}' | tr -d ':' | head -1)
+
 if [ -n "$WIFI_IFACE" ]; then
-  sed -i "s/wlp0s20f3/$WIFI_IFACE/g" "$CONKY_DEST/genius.conkyrc"
+  sed -i "s/__WIFI__/$WIFI_IFACE/g" "$CONKY_DEST/genius.conkyrc"
   ok "WiFi interface detected: $WIFI_IFACE"
 else
-  warn "Could not detect WiFi interface — edit ~/.config/conky/genius.conkyrc manually"
+  sed -i "s/__WIFI__/wlan0/g" "$CONKY_DEST/genius.conkyrc"
+  warn "Could not detect WiFi interface — defaulted to wlan0"
+fi
+
+if [ -n "$ETH_IFACE" ]; then
+  sed -i "s/__ETH__/$ETH_IFACE/g" "$CONKY_DEST/genius.conkyrc"
+  ok "Ethernet interface detected: $ETH_IFACE"
+else
+  sed -i "s/__ETH__/eth0/g" "$CONKY_DEST/genius.conkyrc"
+  warn "Could not detect Ethernet interface — defaulted to eth0"
 fi
 # Auto-start Conky on login
 mkdir -p "$HOME/.config/autostart"

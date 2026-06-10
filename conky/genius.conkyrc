@@ -77,10 +77,14 @@ ${color5}  Disk:  ${color6}${fs_used /} / ${fs_size /}  ${color5}${fs_used_perc 
 ${color5}${fs_bar 4 /}
 
 ${color1}${hr 1}
-${color1}  WiFi:   ${color6}${wireless_essid wlp0s20f3}
-${color1}  Signal: ${color6}${wireless_link_qual_perc wlp0s20f3}%  ${color1}${wireless_link_bar 4,160 wlp0s20f3}
-${color1}  Up: ${color6}${upspeed wlp0s20f3}   ${color1}Down: ${color6}${downspeed wlp0s20f3}
-${color1}  IP: ${color6}${addr wlp0s20f3}
+${if_up __WIFI__}${color1}  Type:   ${color6}WiFi
+${color1}  SSID:   ${color6}${wireless_essid __WIFI__}
+${color1}  Signal: ${color6}${wireless_link_qual_perc __WIFI__}%  ${color1}${wireless_link_bar 4,160 __WIFI__}
+${color1}  Up:     ${color6}${upspeed __WIFI__}   ${color1}Down: ${color6}${downspeed __WIFI__}
+${color1}  IP:     ${color6}${addr __WIFI__}${else}${if_up __ETH__}${color3}  Type:   ${color6}Ethernet
+${color3}  Iface:  ${color6}__ETH__
+${color3}  Up:     ${color6}${upspeed __ETH__}   ${color3}Down: ${color6}${downspeed __ETH__}
+${color3}  IP:     ${color6}${addr __ETH__}${else}${color2}  No network connected${endif}${endif}
 
 ${color4}${hr 1}
 ${color4}  Running: ${color6}${running_processes} / ${processes}
