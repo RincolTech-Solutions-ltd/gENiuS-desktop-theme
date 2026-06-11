@@ -61,6 +61,8 @@ ${color1}${execbar 4 python3 -c "import datetime as d; n=d.datetime.now(); print
 ${color4}  UGANDA        ${color6}${tztime Africa/Kampala %H:%M:%S}
 ${color3}  UNITED STATES ${color6}${tztime America/New_York %H:%M:%S}
 ${color2}  INDIA         ${color6}${tztime Asia/Kolkata %H:%M:%S}
+${color1}  DUBAI         ${color6}${tztime Asia/Dubai %H:%M:%S}
+${color5}  CHINA         ${color6}${tztime Asia/Shanghai %H:%M:%S}
 
 ${color1}${hr 1}
 ${color3}  Core 1: ${color6}${cpu cpu1}%${goto 105}${color1}${cpubar cpu1 4,185}
