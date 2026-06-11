@@ -49,7 +49,12 @@ sudo apt install -y \
   lightdm-gtk-greeter-settings \
   imagemagick \
   x11-utils \
-  dconf-cli 2>&1 | grep -E "(Setting up|already)" | sed 's/^/    /'
+  dconf-cli \
+  xscreensaver \
+  xscreensaver-data \
+  xscreensaver-data-extra \
+  xscreensaver-gl \
+  xscreensaver-gl-extra 2>&1 | grep -E "(Setting up|already)" | sed 's/^/    /'
 ok "Dependencies ready"
 echo ""
 
@@ -170,7 +175,17 @@ conky -c "$CONKY_DEST/genius.conkyrc" &
 ok "Conky running"
 echo ""
 
-# ── 11. Reload Cinnamon ──────────────────────────────────
+# ── 11. Matrix Screensaver (XScreenSaver glmatrix) ───────
+step "Setting up Matrix screensaver (glmatrix)..."
+python3 "$THEME_DIR/xscreensaver/configure-matrix.py"
+mkdir -p "$HOME/.config/autostart"
+cp "$THEME_DIR/xscreensaver/xscreensaver-autostart.desktop" "$HOME/.config/autostart/xscreensaver.desktop"
+gsettings set org.cinnamon.desktop.screensaver idle-activation-enabled false 2>/dev/null || true
+xscreensaver-command -restart >/dev/null 2>&1 || (xscreensaver -no-splash &) >/dev/null 2>&1
+ok "Matrix screensaver active (5 min idle timeout)"
+echo ""
+
+# ── 12. Reload Cinnamon ──────────────────────────────────
 step "Reloading Cinnamon shell..."
 nohup bash -c 'sleep 1 && cinnamon --replace &' >/dev/null 2>&1 &
 ok "Cinnamon reloading..."
@@ -185,6 +200,7 @@ echo -e "${CYAN}│${WHITE}  • Conky widget on desktop (top-right)            
 echo -e "${CYAN}│${WHITE}  • Workspaces: Brain | Code | Launch | Chill         ${CYAN}│${RESET}"
 echo -e "${CYAN}│${WHITE}  • JetBrains Mono font system-wide                   ${CYAN}│${RESET}"
 echo -e "${CYAN}│${WHITE}  • LightDM login screen themed                       ${CYAN}│${RESET}"
+echo -e "${CYAN}│${WHITE}  • Matrix screensaver after 5 min idle               ${CYAN}│${RESET}"
 echo -e "${CYAN}│                                                      │${RESET}"
 echo -e "${CYAN}│${PINK}  To apply shell theme manually if needed:            ${CYAN}│${RESET}"
 echo -e "${CYAN}│${WHITE}  Menu → Themes → Window Borders → gENiuS-Dark        ${CYAN}│${RESET}"

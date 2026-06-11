@@ -38,6 +38,7 @@ That's it. The script handles everything automatically:
 - Auto-detects your WiFi interface
 - Applies the LightDM login screen theme
 - Sets workspace names: Brain, Code, Launch, Chill
+- Sets up the Matrix screensaver (XScreenSaver `glmatrix`), active after 5 minutes of inactivity
 
 ### 3. Apply the shell theme manually (one-time)
 
@@ -62,6 +63,7 @@ After the script finishes, open **Menu → Themes** and set:
 | LightDM theme | gENiuS-branded login screen |
 | Icons | Papirus-Dark |
 | Font | JetBrains Mono |
+| Screensaver | Matrix digital rain (XScreenSaver `glmatrix`), 5 min idle timeout |
 
 ---
 
@@ -78,12 +80,21 @@ After the script finishes, open **Menu → Themes** and set:
 
 ---
 
+## Screensaver
+
+The Matrix digital rain (`glmatrix`) is set as the only screensaver, activating after 5 minutes
+of inactivity. To tweak speed, density, color, or effects, open **xscreensaver-settings**.
+
+`Super+L` still locks the screen via Cinnamon as normal — locking and the screensaver are independent.
+
 ## Uninstall
 
 ```bash
 rm -rf ~/.themes/gENiuS-Dark
 rm -f ~/.config/conky/genius.conkyrc
 rm -f ~/.config/autostart/genius-conky.desktop
+rm -f ~/.config/autostart/xscreensaver.desktop
 gsettings reset org.gnome.desktop.interface gtk-theme
 gsettings reset org.gnome.desktop.background picture-uri
+gsettings reset org.cinnamon.desktop.screensaver idle-activation-enabled
 ```
